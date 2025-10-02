@@ -91,7 +91,7 @@ export default function Home() {
         Lewati ke konten utama
       </a>
       <div className="flex min-h-screen">
-        <aside className="hidden w-64 shrink-0 flex-col justify-between bg-[var(--color-primary)] px-8 py-10 text-white lg:flex">
+        <aside className="hidden w-64 shrink-0 flex-col justify-between bg-[var(--color-primary)] px-8 py-10 text-white lg:sticky lg:top-0 lg:flex lg:h-screen">
           <div>
             <div className="flex items-center gap-3">
               <Image
@@ -438,4 +438,5 @@ export default function Home() {
     </div>
   );
 }
+
 
