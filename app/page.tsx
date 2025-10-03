@@ -102,8 +102,7 @@ export default function Home() {
                 className="rounded-full border border-white/20"
               />
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-white/70">Koperasi Kakao</p>
-                <p className="text-lg font-semibold">Mitra Kakao Mulia</p>
+                <p className="text-lg font-semibold">MKM</p>
               </div>
             </div>
             <nav className="mt-12">
