@@ -150,10 +150,10 @@ export default function Home() {
           </header>
 
           <main id="konten-utama" className="space-y-24 pb-24 lg:space-y-28">
-            <section id="beranda" className="relative isolate overflow-hidden rounded-none lg:rounded-ss-[48px]">
+            <section id="beranda" className="relative isolate flex min-h-[calc(100vh-80px)] items-stretch overflow-hidden rounded-none lg:min-h-[100vh] lg:rounded-ss-[48px]">
               <Image src="/images/hero-bg.jpg" alt="Latar biji kakao" fill priority sizes="100vw" className="object-cover" />
               <div className="absolute inset-0 bg-black/60" />
-              <div className="relative mx-auto flex min-h-[70vh] max-w-5xl flex-col justify-center gap-6 px-6 py-24 sm:px-10">
+              <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center gap-6 px-6 py-24 sm:px-10">
                 <span className="text-xs uppercase tracking-[0.5em] text-white/70">Kelezatan murni dari alam</span>
                 <h1 className="text-4xl font-bold text-white sm:text-6xl">Mitra Kakao Mulia</h1>
                 <p className="max-w-2xl text-lg text-white/80 sm:text-xl">
@@ -438,5 +438,6 @@ export default function Home() {
     </div>
   );
 }
+
 
 
