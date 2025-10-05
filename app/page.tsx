@@ -8,29 +8,6 @@ const navItems = [
   { label: "Kontak", href: "#kontak" },
 ];
 
-const featureHighlights = [
-  {
-    title: "Pertanian Berkelanjutan",
-    description: "Metode ramah lingkungan yang menjaga kesuburan tanah dan kualitas biji.",
-    image: "/images/pertanian-berkelanjutan.JPG",
-  },
-  {
-    title: "Koperasi Petani",
-    description: "Memberdayakan petani lokal melalui pendampingan dan harga yang adil.",
-    image: "/images/koperasi-petani.JPG",
-  },
-  {
-    title: "Kualitas Premium",
-    description: "Standar seleksi internasional untuk menjaga cita rasa kakao terbaik.",
-    image: "/images/kualitas-premium.JPG",
-  },
-  {
-    title: "Tradisi Turun Temurun",
-    description: "Warisan keluarga yang menghadirkan kelezatan kakao berkarakter.",
-    image: "/images/tradisi-turun-temurun.JPG",
-  },
-];
-
 const products = [
   {
     title: "Biji Kakao Fermentasi",
@@ -170,46 +147,28 @@ export default function Home() {
             </section>
 
             <section id="tentang" className="bg-white py-16 shadow-[0_30px_40px_-40px_rgba(75,42,26,0.4)]">
-              <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6 lg:flex-row">
-                <div className="lg:w-1/2">
+              <div className="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 lg:flex-row">
+                <div className="w-full lg:w-1/2">
                   <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-muted)]">Tentang Kami</p>
                   <h2 className="mt-4 text-3xl font-bold text-[var(--color-primary)] sm:text-4xl">
                     Menghadirkan kakao berkualitas dari petani lokal
                   </h2>
                   <p className="mt-6 text-base leading-relaxed text-black/70">
-                    MITRA KAKAO MULIA adalah koperasi petani kakao yang berkomitmen menghasilkan kakao berkualitas tinggi dengan metode pertanian berkelanjutan. Kami bekerja sama dengan petani lokal untuk memastikan kualitas terbaik dari kebun hingga konsumen.
+                    MITRA KAKAO MULIA adalah koperasi petani kakao di Pangandaran yang memasok biji kakao single-origin berkualitas. Kami bermitra dengan [120+] petani, menerapkan pascapanen terstandar - fermentasi 5-7 hari, pengeringan hingga <=7% kadar air - serta cut-test rutin untuk konsistensi rasa. Seluruh batch terlacak asalnya dan dibeli dengan harga adil. Dari kebun lokal ke pabrik Anda, kami menghadirkan biji siap olah dengan profil rasa yang bersih dan stabil.
                   </p>
-                  <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                    {featureHighlights.map((feature) => (
-                      <article key={feature.title} className="rounded-3xl border border-black/5 bg-[var(--background)]/40 p-6 shadow-sm">
-                        <div className="flex items-center gap-3">
-                          <div className="relative h-14 w-14 overflow-hidden rounded-full bg-white shadow-inner">
-                            <Image src={feature.image} alt={feature.title} fill sizes="80px" className="object-cover" />
-                          </div>
-                          <h3 className="text-sm font-semibold text-[var(--color-primary)]">{feature.title}</h3>
-                        </div>
-                        <p className="mt-3 text-sm text-black/70">{feature.description}</p>
-                      </article>
-                    ))}
-                  </div>
                 </div>
-                <div className="lg:w-1/2 lg:pl-10">
-                  <div className="rounded-[40px] border border-black/5 bg-[var(--background)]/40 p-8 shadow-lg">
-                    <h3 className="text-lg font-semibold text-[var(--color-primary)]">Komitmen Kami</h3>
-                    <ul className="mt-6 space-y-4 text-sm text-black/80">
-                      <li className="flex items-start gap-3">
-                        <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[var(--color-accent)]" />
-                        Pengolahan pasca panen terstandar untuk menjamin konsistensi rasa.
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[var(--color-accent)]" />
-                        Kemitraan dengan petani lokal dalam peningkatan kapasitas dan kualitas.
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[var(--color-accent)]" />
-                        Transparansi proses produksi dari kebun hingga konsumen akhir menjamin kualitas.
-                      </li>
-                    </ul>
+                <div className="w-full lg:w-1/2">
+                  <div className="relative overflow-hidden rounded-[40px] border border-black/5 shadow-lg">
+                    <div className="relative aspect-[4/5] sm:aspect-[3/4]">
+                      <Image
+                        src="https://images.unsplash.com/photo-1657726936729-4926e65989df?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhhbmQlMjBzZWxlY3Rpb24lMjBjYWNhb3xlbnwwfHwwfHx8MA%3D%3D"
+                        alt="Seleksi biji kakao siap dipilih"
+                        fill
+                        sizes="(min-width: 1024px) 480px, 100vw"
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -437,6 +396,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-
