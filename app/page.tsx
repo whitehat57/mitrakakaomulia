@@ -207,7 +207,7 @@ export default function Home() {
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[var(--color-accent)]" />
-                        Transparansi proses produksi dari kebun hingga konsumen akhir.
+                        Transparansi proses produksi dari kebun hingga konsumen akhir menjamin kualitas.
                       </li>
                     </ul>
                   </div>
