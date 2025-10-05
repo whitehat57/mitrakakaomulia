@@ -154,7 +154,7 @@ export default function Home() {
                     Menghadirkan kakao berkualitas dari petani lokal
                   </h2>
                   <p className="mt-6 text-base leading-relaxed text-black/70">
-                    MITRA KAKAO MULIA adalah koperasi petani kakao di Pangandaran yang memasok biji kakao single-origin berkualitas. Kami bermitra dengan [120+] petani, menerapkan pascapanen terstandar - fermentasi 5-7 hari, pengeringan hingga &le;7% kadar air serta cut-test rutin untuk konsistensi rasa. Seluruh batch terlacak asalnya dan dibeli dengan harga adil. Dari kebun lokal ke pabrik Anda, kami menghadirkan biji siap olah dengan profil rasa yang bersih dan stabil.
+                    MITRA KAKAO MULIA adalah koperasi petani kakao di Pangandaran yang memasok biji kakao single-origin berkualitas. Kami bermitra dengan 120+ petani, menerapkan pascapanen terstandar - fermentasi 5-7 hari, pengeringan hingga &le;7% kadar air serta cut-test rutin untuk konsistensi rasa. Seluruh batch terlacak asalnya dan dibeli dengan harga adil. Dari kebun lokal ke pabrik Anda, kami menghadirkan biji siap olah dengan profil rasa yang bersih dan stabil.
                   </p>
                 </div>
                 <div className="w-full lg:w-1/2">
