@@ -1,13 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Optional: shadcn base tokens (kept minimal to avoid breaking existing styles) */
-@custom-variant dark (&:is(.dark *));
-@layer base {
-  * { @apply outline-ring/50; }
-  body { @apply bg-background text-foreground; }
-}
-
 :root {
   --background: #f6efe6;
   --foreground: #2c1b10;
@@ -51,4 +44,3 @@ body {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
