@@ -186,6 +186,85 @@ export default function Home() {
               </div>
             </section>
 
+            <section id="produk" className="bg-gradient-to-b from-[#fef9f4] via-[#fdf2e7] to-white py-16">
+              <div className="mx-auto max-w-6xl px-4 sm:px-6">
+                <div className="mx-auto max-w-3xl text-center">
+                  <span className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent)]">
+                    Produk Unggulan
+                  </span>
+                  <h2 className="mt-4 text-3xl font-bold text-[var(--color-primary)] sm:text-4xl">
+                    Ragam produk kakao pilihan
+                  </h2>
+                  <p className="mt-4 text-base leading-relaxed text-black/65 md:text-lg">
+                    Setiap produk kami diproses dengan teliti untuk menjaga cita rasa dan kualitas terbaik.
+                  </p>
+                </div>
+
+                <div className="mt-16 space-y-12">
+                  {products.map((product, index) => {
+                    const imageOnLeft = index % 2 === 0;
+                    return (
+                      <article
+                        key={product.title}
+                        className={cn(
+                          "group grid gap-8 rounded-2xl border border-black/10 bg-white/90 p-6 shadow-sm transition-all duration-300 sm:p-8",
+                          "md:grid-cols-2 md:items-center md:gap-12",
+                          "hover:-translate-y-1 hover:border-black/20 hover:shadow-lg",
+                          "focus-within:border-black/30 focus-within:shadow-lg"
+                        )}
+                      >
+                        <div
+                          className={cn(
+                            "relative order-1 overflow-hidden rounded-2xl ring-1 ring-black/5 transition duration-300",
+                            "group-hover:ring-black/15",
+                            imageOnLeft ? "md:order-1" : "md:order-2"
+                          )}
+                        >
+                          <div className="relative aspect-[4/3]">
+                            <Image
+                              src={product.image}
+                              alt={product.title}
+                              fill
+                              sizes="(min-width: 1024px) 480px, (min-width: 768px) 50vw, 100vw"
+                              className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                            />
+                          </div>
+                        </div>
+
+                        <div
+                          className={cn(
+                            "order-2 flex flex-col justify-center gap-5",
+                            imageOnLeft ? "md:order-2" : "md:order-1"
+                          )}
+                        >
+                          <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-muted)]">
+                            Produk Unggulan
+                          </span>
+                          <h3 className="text-2xl font-semibold text-[var(--color-primary)] md:text-3xl">
+                            {product.title}
+                          </h3>
+                          <p className="max-w-[70ch] text-base leading-relaxed text-black/70 md:text-lg">
+                            {product.description}
+                          </p>
+                          <ul className="flex flex-wrap gap-3 text-xs md:text-sm">
+                            {product.specs.slice(0, 3).map((spec) => (
+                              <li
+                                key={spec}
+                                className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1.5 text-[var(--color-primary)] ring-1 ring-[var(--color-primary)]/15 transition hover:ring-[var(--color-primary)]/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+                              >
+                                <span>{getSpecIcon(spec)}</span>
+                                <span>{spec}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+
             <section id="galeri" className="bg-[var(--color-secondary)] py-20">
               <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="text-center">
