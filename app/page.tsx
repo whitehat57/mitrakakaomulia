@@ -113,7 +113,7 @@ export default function Home() {
 
         <div className="flex-1">
           <header className="sticky top-0 z-40 border-b border-black/5 bg-[var(--background)]/90 backdrop-blur lg:hidden">
-            <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+            <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
               <div className="flex items-center gap-3">
                 <Image
                   src="/images/icon.png"
@@ -141,7 +141,7 @@ export default function Home() {
             <section id="beranda" className="relative isolate flex min-h-[calc(100vh-80px)] items-stretch overflow-hidden rounded-none lg:min-h-[100vh] lg:rounded-ss-[48px]">
               <Image src="/images/hero-bg.jpg" alt="Latar biji kakao" fill priority sizes="100vw" className="object-cover" />
               <div className="absolute inset-0 bg-black/60" />
-              <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center gap-6 px-6 py-24 sm:px-10">
+              <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center gap-6 px-4 py-16 sm:px-10 sm:py-24">
                 <span className="text-xs uppercase tracking-[0.5em] text-white/70">Kelezatan murni dari alam</span>
                 <h1 className="text-4xl font-bold text-white sm:text-6xl">Mitra Kakao Mulia</h1>
                 <p className="max-w-2xl text-lg text-white/80 sm:text-xl">
@@ -159,7 +159,7 @@ export default function Home() {
             </section>
 
             <section id="tentang" className="bg-white py-16 shadow-[0_30px_40px_-40px_rgba(75,42,26,0.4)]">
-              <div className="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 lg:flex-row">
+              <div className="mx-auto flex max-w-6xl flex-col items-center gap-12 px-4 sm:px-6 lg:flex-row">
                 <div className="w-full lg:w-1/2">
                   <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-muted)]">Tentang Kami</p>
                   <h2 className="mt-4 text-3xl font-bold text-[var(--color-primary)] sm:text-4xl">
@@ -187,7 +187,7 @@ export default function Home() {
             </section>
 
             <section id="produk" className="bg-gradient-to-b from-[#fef9f4] via-[#fdf2e7] to-white py-16">
-              <div className="mx-auto max-w-6xl px-6">
+              <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="mx-auto max-w-3xl text-center">
                   <span className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent)]">
                     Produk Unggulan
@@ -207,8 +207,8 @@ export default function Home() {
                       <article
                         key={product.title}
                         className={cn(
-                          "group rounded-2xl border border-black/10 bg-white/90 p-8 shadow-sm transition-all duration-300",
-                          "md:grid md:grid-cols-2 md:items-center md:gap-12",
+                          "group grid gap-8 rounded-2xl border border-black/10 bg-white/90 p-6 shadow-sm transition-all duration-300 sm:p-8",
+                          "md:grid-cols-2 md:items-center md:gap-12",
                           "hover:-translate-y-1 hover:border-black/20 hover:shadow-lg",
                           "focus-within:border-black/30 focus-within:shadow-lg"
                         )}
@@ -266,7 +266,7 @@ export default function Home() {
             </section>
 
             <section id="galeri" className="bg-[var(--color-secondary)] py-20">
-              <div className="mx-auto max-w-6xl px-6">
+              <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="text-center">
                   <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-muted)]">Galeri</p>
                   <h2 className="mt-4 text-3xl font-bold text-[var(--color-primary)] sm:text-4xl">
@@ -288,7 +288,7 @@ export default function Home() {
                           className="object-cover transition-transform duration-700 hover:scale-105"
                         />
                       </div>
-                      <figcaption className="px-6 py-5">
+                      <figcaption className="px-4 py-5 sm:px-6">
                         <h3 className="text-base font-semibold text-[var(--color-primary)]">{item.title}</h3>
                         <p className="mt-2 text-sm text-black/60">{item.caption}</p>
                       </figcaption>
@@ -298,8 +298,8 @@ export default function Home() {
               </div>
             </section>
 
-            <section id="kontak" className="px-6">
-              <div className="mx-auto max-w-6xl rounded-[40px] border border-black/5 bg-white/85 p-10 shadow-xl backdrop-blur-sm">
+            <section id="kontak" className="px-4 sm:px-6">
+              <div className="mx-auto max-w-6xl rounded-[40px] border border-black/5 bg-white/85 p-8 shadow-xl backdrop-blur-sm sm:p-10">
                 <div className="text-center">
                   <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-muted)]">Hubungi Kami</p>
                   <h2 className="mt-4 text-3xl font-bold text-[var(--color-primary)] sm:text-4xl">
@@ -310,7 +310,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-                  <div className="space-y-8 rounded-3xl border border-black/5 bg-[var(--background)]/40 p-8 shadow-md">
+                  <div className="space-y-8 rounded-3xl border border-black/5 bg-[var(--background)]/40 p-6 shadow-md sm:p-8">
                     <h3 className="text-lg font-semibold text-[var(--color-primary)]">Kirim Pesan</h3>
                     <form className="grid gap-5 sm:grid-cols-2">
                       <label className="flex flex-col gap-2 text-sm text-[var(--color-primary)]">
@@ -388,7 +388,7 @@ export default function Home() {
           </main>
 
           <footer className="mt-24 bg-[var(--color-primary)] text-white">
-            <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 md:grid-cols-4">
+            <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Image
