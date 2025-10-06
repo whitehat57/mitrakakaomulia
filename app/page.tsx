@@ -183,7 +183,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>              </div>
+              </div>
             </section>
 
             <section id="galeri" className="bg-[var(--color-secondary)] py-20">
@@ -371,3 +371,4 @@ export default function Home() {
     </div>
   );
 }
+
