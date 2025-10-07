@@ -70,7 +70,7 @@ const galleryItems = [
     title: "Hasil Olahan Kakao",
     caption: "Ragam olahan kakao siap distribusi untuk kebutuhan industri dan retail.",
     image:
-      "https://www.z-company.nl/wp-content/uploads/elementor/thumbs/blog_cacao-odzuv46kaz24pbe3o42wd0943ex46eqqfkjh2mfqks.jpg",
+      "/images/hasil-olahan-kakao.jpg",
   },
 ];
 
