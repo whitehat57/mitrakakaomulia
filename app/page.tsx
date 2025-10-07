@@ -70,7 +70,7 @@ const galleryItems = [
     title: "Hasil Olahan Kakao",
     caption: "Ragam olahan kakao siap distribusi untuk kebutuhan industri dan retail.",
     image:
-      "/images/hasil-olahan-kakao.jpg",
+      "/images/hasil-olahan.jpg",
   },
 ];
 
