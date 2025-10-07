@@ -180,7 +180,7 @@ export default function Home() {
             </div>
           </header>
 
-          <main id="konten-utama" className="space-y-24 pb-24 lg:space-y-28">
+          <main id="konten-utama" className="pb-24">
             <section id="beranda" className="relative isolate flex min-h-[calc(100vh-80px)] items-stretch overflow-hidden rounded-none lg:min-h-[100vh] lg:rounded-ss-[48px]">
               <Image src="/images/hero-bg.jpg" alt="Latar biji kakao" fill priority sizes="100vw" className="object-cover" />
               <div className="absolute inset-0 bg-black/60" />
