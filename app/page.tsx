@@ -1,4 +1,7 @@
+'use client';
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -46,24 +49,28 @@ const products = [
 
 const galleryItems = [
   {
-    title: "Panen Biji Kakao",
-    caption: "Kualitas biji pilihan dari kebun petani lokal.",
-    image: "/images/product-1.jpeg",
-  },
-  {
-    title: "Proses Pengeringan",
-    caption: "Pengeringan alami untuk menjaga karakter rasa.",
-    image: "/images/product-2.jpg",
-  },
-  {
-    title: "Olahan Kakao",
-    caption: "Bubuk kakao murni siap produksi.",
-    image: "/images/product-3.jpeg",
+    title: "Panen Kakao",
+    caption: "Petani memetik kakao matang untuk menjaga kualitas dan konsistensi rasa.",
+    image:
+      "https://media.licdn.com/dms/image/v2/C5612AQFH2quKRCXn7A/article-inline_image-shrink_400_744/article-inline_image-shrink_400_744/0/1629538135771?e=2147483647&v=beta&t=1fnoXBuckrx0FiGMv6GmsbsMI4DUcr1SOBtVbNUoXqQ",
   },
   {
     title: "Fermentasi Tradisional",
-    caption: "Fermentasi menonjolkan aroma dan rasa kakao.",
-    image: "/images/koperasi-petani.JPG",
+    caption: "Proses fermentasi tradisional untuk menonjolkan aroma dan cita rasa kakao.",
+    image:
+      "https://anarchychocolate.com/wp-content/uploads/2020/08/Fermenting-Cocoa-Beans-in-Thailand-1030x579.png",
+  },
+  {
+    title: "Proses Pengeringan",
+    caption: "Pengeringan terkontrol memastikan biji kakao bebas jamur dan siap olah.",
+    image:
+      "https://thumbs.dreamstime.com/b/cocoa-beans-cacao-beans-being-dried-drying-platform-being-fermented-cocoa-beans-cacao-beans-being-dried-159567865.jpg",
+  },
+  {
+    title: "Hasil Olahan Kakao",
+    caption: "Ragam olahan kakao siap distribusi untuk kebutuhan industri dan retail.",
+    image:
+      "https://www.z-company.nl/wp-content/uploads/elementor/thumbs/blog_cacao-odzuv46kaz24pbe3o42wd0943ex46eqqfkjh2mfqks.jpg",
   },
 ];
 
@@ -74,6 +81,42 @@ const faqs = [
 ];
 
 export default function Home() {
+  const [activeItem, setActiveItem] = useState<(typeof galleryItems)[number] | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    if (!activeItem) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveItem(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [activeItem]);
+
+  useEffect(() => {
+    if (activeItem && closeButtonRef.current) {
+      closeButtonRef.current.focus();
+    }
+  }, [activeItem]);
+
+  const closeLightbox = () => setActiveItem(null);
+  const activeIndex = activeItem ? galleryItems.findIndex((item) => item.title === activeItem.title) : -1;
+  const modalTitleId = activeIndex >= 0 ? `galeri-modal-title-${activeIndex}` : undefined;
+  const modalDescriptionId = activeIndex >= 0 ? `galeri-modal-description-${activeIndex}` : undefined;
+
   return (
     <div className="bg-[var(--background)] text-[var(--foreground)]">
       <a className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[var(--color-primary)]" href="#konten-utama">
@@ -276,27 +319,80 @@ export default function Home() {
                     Dokumentasi perjalanan kakao dari kebun hingga siap dinikmati.
                   </p>
                 </div>
-                <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                   {galleryItems.map((item) => (
-                    <figure key={item.title} className="overflow-hidden rounded-3xl border border-black/5 bg-white/80 shadow-md">
-                      <div className="relative h-52 w-full">
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          fill
-                          sizes="(min-width: 1024px) 250px, (min-width: 640px) 50vw, 100vw"
-                          className="object-cover transition-transform duration-700 hover:scale-105"
-                        />
+                    <button
+                      key={item.title}
+                      type="button"
+                      onClick={() => setActiveItem(item)}
+                      className="group relative flex min-h-[360px] flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br from-white/95 via-white/90 to-white/80 p-5 text-left shadow-lg ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-[var(--color-primary)]/40 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-accent)]/50"
+                    >
+                      <div className="rounded-2xl bg-white/70 p-3 shadow-inner">
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-black/5">
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw"
+                            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                            unoptimized
+                          />
+                        </div>
                       </div>
-                      <figcaption className="px-4 py-5 sm:px-6">
-                        <h3 className="text-base font-semibold text-[var(--color-primary)]">{item.title}</h3>
-                        <p className="mt-2 text-sm text-black/60">{item.caption}</p>
-                      </figcaption>
-                    </figure>
+                      <div className="mt-6 flex flex-1 flex-col">
+                        <h3 className="text-lg font-semibold text-[var(--color-primary)]">{item.title}</h3>
+                        <p className="mt-3 text-sm text-black/70">{item.caption}</p>
+                      </div>
+                    </button>
                   ))}
                 </div>
               </div>
             </section>
+
+            {activeItem && (
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby={modalTitleId}
+                aria-describedby={modalDescriptionId}
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-10 backdrop-blur-sm"
+                onClick={closeLightbox}
+              >
+                <div
+                  className="relative w-full max-w-3xl"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <div className="overflow-hidden rounded-3xl bg-white/90 p-4 shadow-[0_25px_80px_-30px_rgba(37,17,0,0.65)] ring-1 ring-black/10">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-black/5">
+                      <Image
+                        src={activeItem.image}
+                        alt={activeItem.title}
+                        fill
+                        sizes="100vw"
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
+                    <div className="mt-4 text-center text-[var(--color-primary)]">
+                      <h3 id={modalTitleId} className="text-xl font-semibold">{activeItem.title}</h3>
+                      <p id={modalDescriptionId} className="mt-2 text-sm text-black/70">
+                        {activeItem.caption}
+                      </p>
+                    </div>
+                    <div className="mt-6 flex justify-center">
+                      <button
+                        type="button"
+                        ref={closeButtonRef}
+                        onClick={closeLightbox}
+                        className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-[#6a3a22] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/70"
+                      >
+                        Tutup
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <section id="kontak" className="px-4 sm:px-6">
               <div className="mx-auto max-w-6xl rounded-[40px] border border-black/5 bg-white/85 p-8 shadow-xl backdrop-blur-sm sm:p-10">
